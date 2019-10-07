@@ -1,0 +1,24 @@
+nav {
+  display: inline-flex;
+  justify-content: space-between;
+  /* box-sizing: border-box; */
+  font-family: 'Bungee', cursive;
+  position: fixed;
+  top: 0;
+  height: 120px;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #4056A1;
+  color: #FFFF;
+  padding: 1.5em;  
+ }  
+
+
+ .navSpan {
+  font-family: 'Bungee', cursive;
+ }
+
+ .navRight {
+  font-family: 'Source Sans Pro', sans-serif;
+ }
