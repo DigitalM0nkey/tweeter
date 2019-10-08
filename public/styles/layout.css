@@ -24,3 +24,13 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+  display: block;
+    margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  font: inherit;
+
+ }
+

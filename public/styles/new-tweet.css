@@ -1,0 +1,26 @@
+form {
+  
+ }
+
+ form textarea {
+  margin: 0;
+  border-bottom-color: #555149;
+  border-bottom-width: thick;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  min-width: -webkit-fill-available;
+  background-color: #f5f1ec;
+ }
+
+ form input {
+  
+  background-color: #4152a1;
+  color: white;
+ }
+
+ .below-input {
+  font-family: 'Bungee', cursive;
+  display: flex;
+  justify-content: space-between;
+ }

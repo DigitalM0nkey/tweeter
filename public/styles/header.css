@@ -10,22 +10,11 @@ header {
   flex-direction: column;
   background-color: #40BCA5;
   margin-top: 120px;
-background-image: url(http://www.transparenttextures.com/patterns/light-honeycomb-dark.png);
+  background-image: url(http://www.transparenttextures.com/patterns/light-honeycomb-dark.png);
 
   
 }
 .avatar {
   display: flex;
-
   position: relative;
-
-
-  order 1;
-  
-
-}
-.userName {
-
-  order: 2
-
 }
