@@ -33,12 +33,9 @@ const data = [
 ]
 
 const renderTweets = function(tweets) {
-  // loops through tweets
-  data.forEach(element => {
+  tweets.forEach(element => {
     return $('#tweets-container').append(createTweetElement(element));
   });
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
 };
 
 const createTweetElement = function(tweet) {
@@ -67,8 +64,7 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
-
 const $tweet = renderTweets(data);
-console.log($tweet); // to see what it looks like
+// console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet);
 // console.log($tweet); // to see what it looks like
