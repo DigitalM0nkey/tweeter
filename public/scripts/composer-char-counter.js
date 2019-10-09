@@ -1,9 +1,5 @@
 $(document).ready(function() {
 
-
-  // document.addEventListener("input", function(event) {
-  //   console.log(event.type));
-
   $("textarea").on('input', function() {
 
     const maxTweetLength = 140;
@@ -19,11 +15,6 @@ $(document).ready(function() {
 
   });
 
-
-
-
-
-  // --- our code goes here ---
 });
 
 
