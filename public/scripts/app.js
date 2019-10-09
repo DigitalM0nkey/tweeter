@@ -32,15 +32,19 @@ const data = [
   }
 ]
 
-const renderTweets = function(tweets) {
-  tweets.forEach(element => {
-    return $('#tweets-container').append(createTweetElement(element));
-  });
-};
 
-const createTweetElement = function(tweet) {
-  const $tweet = $("<article>").addClass("all-tweets");
-  const markup = `   
+$(document).ready(function() {
+  // place all tweets from db onto main page
+  const renderTweets = function(tweets) {
+    tweets.forEach(element => {
+      return $('#tweets-container').append(createTweetElement(element));
+    });
+  };
+
+  // create indervidule tweet
+  const createTweetElement = function(tweet) {
+    const $tweet = $("<article>").addClass("all-tweets");
+    const markup = `   
     <header>
       <div>
         <img src=${tweet.user.avatars}>
@@ -60,11 +64,25 @@ const createTweetElement = function(tweet) {
       </div>
     </footer>
   `;
-  $($tweet).append(markup);
-  return $tweet;
-};
+    $($tweet).append(markup);
+    return $tweet;
+  };
 
-const $tweet = renderTweets(data);
+  const $tweet = renderTweets(data);
+
+  $('.new-tweet-form').submit(function(event) {
+    const data = $(this).serialize();
+    event.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: '/tweets',
+      data: data,
+      success: console.log("Here")
+    });
+
+  });
+
+});
 // console.log($tweet); // to see what it looks like
 // $('#tweets-container').append($tweet);
 // console.log($tweet); // to see what it looks like
