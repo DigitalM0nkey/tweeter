@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css" />
 
 
   <!-- External JS -->
@@ -38,7 +39,8 @@
   <nav>
     <span class="navSpan">tweeter</span>
     <div class="rightNav">
-      <span class="navRight"><strong>Write</strong> a new Tweet </span>
+      <span class="navRight"><strong>Write</strong> &nbsp; a new Tweet
+      </span>
       <i class="fad fa-angle-double-down"></i>
     </div>
   </nav>
@@ -50,7 +52,7 @@
     </div>
     <br>
     <div>
-      <h2 class="userName">James Pancake</h2>
+      <h2 class="userName">Code Monkey</h2>
     </div>
   </header>
   <!-- Page-specific (main) content here -->
@@ -62,12 +64,39 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <form action="/tweets" method="POST">
-        <textarea name="text" placeholder="What are you humming about?"></textarea>
-        <div class="below-input">
+        <textarea name="text" placeholder="What are you humming about?">
+        </textarea>
+        <div class="input-footer">
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </div>
       </form>
+    </section>
+
+    <section class="all-tweets">
+      <header>
+        <div>
+          <span style="font-size:2em">
+            <i class="fad fa-user-astronaut"></i>
+          </span>
+          Code Monkey
+        </div>
+        <p>@DigitalM0nkey</p>
+      </header>
+
+      <article>
+        <p>The best tweet ever! But what if it is more than 140 words...aaahhh IDK</p>
+      </article>
+
+      <footer>
+        10 days ago
+        <div>
+          <i class="fad fa-flag"></i>
+          <i class="fad fa-retweet-alt"></i>
+          <i class="fad fa-heart"></i>
+        </div>
+      </footer>
+
     </section>
     <p> </p>
     <p> </p>

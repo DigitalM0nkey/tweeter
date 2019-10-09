@@ -6,14 +6,15 @@ $(document).ready(function() {
 
   $("textarea").on('input', function() {
 
+    const maxTweetLength = 140;
     const counter = $(this).next().find(".counter");
 
-    $(counter).html(140 - $(this).val().length);
+    $(counter).html(maxTweetLength - $(this).val().length);
 
-    if (140 - $(this).val().length < 0) {
-      $(counter).addClass("makeCounterRed");
+    if (maxTweetLength - $(this).val().length < 0) {
+      $(counter).addClass("make-counter-red");
     } else {
-      $(counter).removeClass("makeCounterRed");
+      $(counter).removeClass("make-counter-red");
     }
 
   });

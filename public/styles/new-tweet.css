@@ -19,12 +19,12 @@ form {
   color: white;
  }
 
- .below-input {
+ .input-footer {
   font-family: 'Bungee', cursive;
   display: flex;
   justify-content: space-between;
  }
 
- .makeCounterRed {
+ .make-counter-red {
    color: red
  }
