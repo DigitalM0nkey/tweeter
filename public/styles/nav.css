@@ -15,6 +15,10 @@ nav {
    
  }  
 
+ .navRight {
+  display: flex;
+  justify-content: center;
+ }
 
  .navSpan {
   font-family: 'Bungee', cursive;
