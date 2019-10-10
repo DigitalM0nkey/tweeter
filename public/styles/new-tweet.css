@@ -1,6 +1,8 @@
-form {
-  
- }
+
+.new-tweet{
+  display: none;
+}
+
 
  form textarea {
   margin: 0;

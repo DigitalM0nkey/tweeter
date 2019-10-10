@@ -7,22 +7,27 @@
 $(document).ready(function() {
   // place all tweets from db onto main page
   const renderTweets = function(tweets) {
-
     tweets.forEach(element => {
       return $('#tweets-container').prepend(createTweetElement(element));
     });
   };
-
 
   // Make text safe
   const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
+  // Make text field slide down
+  $(".fa-angle-double-down").click(function() {
+    if (!$(".fa-angle-double-down").first().is(":hidden")) {
+      $(".new-tweet").slideToggle("slow");
+      $('form textarea').focus();
+    }
+  });
 
-  // create indervidule tweet
+  // Create indervidule tweet
   const createTweetElement = function(tweet) {
     const $tweet = $("<article>").addClass("all-tweets");
     const markup = `   
@@ -49,17 +54,12 @@ $(document).ready(function() {
     return $tweet;
   };
 
-
   // AJAX GET /tweets
   const loadTweets = function() {
     $.ajax({
       method: "GET",
       url: '/tweets',
       dataType: 'json'
-      // success: function(results) {
-      //   renderTweets(results);
-      //   console.log(results);
-      // }
     })
       .then(function(results) {
         renderTweets(results);
@@ -71,23 +71,17 @@ $(document).ready(function() {
       method: "GET",
       url: '/tweets',
       dataType: 'json'
-      // success: function(results) {
-      //   renderTweets(results);
-      //   console.log(results);
-      // }
     })
       .then(function(results) {
         renderTweets([results[results.length - 1]]);
       });
   };
 
-
   // AJAX POST /tweets
   $('.new-tweet-form').submit(function(event) {
     const data = $(this).serialize();
     event.preventDefault();
     if (data === "text=") {
-
       alert("Sorry Buddy. That's empty.. What do you want me to do with that?");
       return false;
     } else if ($(this[form = "text"]).val().length > 140) {
@@ -109,14 +103,7 @@ $(document).ready(function() {
           console.log("NOOOOOOOO!");
         });
     }
-
-
-
   });
-
-
-
-
 
   loadTweets();
 
