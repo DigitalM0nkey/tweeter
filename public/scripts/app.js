@@ -5,6 +5,7 @@
  */
 
 $(document).ready(function() {
+
   // place all tweets from db onto main page
   const renderTweets = function(tweets) {
     tweets.forEach(element => {
@@ -30,11 +31,12 @@ $(document).ready(function() {
 
   // Create indervidule tweet
   const createTweetElement = function(tweet) {
+
     const $tweet = $("<article>").addClass("all-tweets");
-    const markup = `   
+    const markup = ` 
     <header>
-      <div>
-        <img src=${tweet.user.avatars}>
+    <div>
+      <img src=${tweet.user.avatars}>
         ${tweet.user.name}
       </div>
       <p>${tweet.user.handle}</p>
@@ -43,7 +45,7 @@ $(document).ready(function() {
       <p>${escape(tweet.content.text)}</p>
     </article>
     <footer>
-      ${tweet.created_at} miliseconds since 01-Jan-1970
+    ${moment(tweet.created_at).format("DD MMM YYYY hh:mm a")}
       <div>
         <i class="fad fa-flag"></i>
         <i class="fad fa-retweet-alt"></i>

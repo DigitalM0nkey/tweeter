@@ -12,6 +12,10 @@
   margin: 2%;
 }
 
+.all-tweets * p {
+  overflow-wrap: break-word;
+}
+
 .all-tweets header > p {
   opacity: 0;
   transition: all ease 0.8s;
