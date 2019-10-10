@@ -13,6 +13,14 @@ $(document).ready(function() {
     });
   };
 
+  // Make text safe
+  const escape = function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+
   // create indervidule tweet
   const createTweetElement = function(tweet) {
     const $tweet = $("<article>").addClass("all-tweets");
@@ -25,7 +33,7 @@ $(document).ready(function() {
       <p>${tweet.user.handle}</p>
     </header>
     <article>
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
     </article>
     <footer>
       ${tweet.created_at}
