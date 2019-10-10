@@ -81,20 +81,42 @@ $(document).ready(function() {
 
   // Error Messages
   const errorMessages = function(type) {
+
+
+    let timeleft = 10;
+    let exitTimer = setInterval(function() {
+      document.getElementById("progressBar").value = 10 - timeleft;
+      timeleft -= 1;
+      if (timeleft <= 0) {
+        clearInterval(exitTimer);
+        document.getElementById("progressBar").value = 10;
+      }
+    }, 1000);
+
     if (type === 'empty') {
+
+      $('<style>.errorBody { display: none; }</style>').appendTo('.errorBody');
+      $('<style>#progressBar { display: none; }</style>').appendTo('#progressBar');
       $('<style>.errorMessage { display: block; }</style>').appendTo('.errorMessage');
       $('.errorTitle').text('ERROR - INPUT EMPTY').slideDown('slow');
       setTimeout(function() {
+        $('<style>#progressBar { display: inline-flex; }</style>').appendTo('#progressBar');
+        $('<style>.errorBody { display: inline-flex; }</style>').appendTo('.errorBody');
         $('.errorBodyText').text("Sorry Buddy. That's empty.. What do you want me to do with that?").slideDown('slow');
       }, 2 * 1000);
       setTimeout(() => {
+        timeleft = 10;
         $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
         $('.errorMessage').slideUp();
       }, 10000);
     } else if (type === 'full') {
+      $('<style>.errorBody { display: none; }</style>').appendTo('.errorBody');
+      $('<style>#progressBar { display: none; }</style>').appendTo('#progressBar');
       $('<style>.errorMessage { display: block; }</style>').appendTo('.errorMessage');
       $('.errorTitle').text('ERROR - INPUT FULL').slideDown('slow');
       setTimeout(function() {
+        $('<style>#progressBar { display: inline-flex; }</style>').appendTo('#progressBar');
+        $('<style>.errorBody { display: inline-flex; }</style>').appendTo('.errorBody');
         $('.errorBodyText').text("You must be color blind!! Didn't you see that you typed more than 140 characters. You gotta slim that done before you submit it.").slideDown('slow');
       }, 2 * 1000);
       setTimeout(() => {
