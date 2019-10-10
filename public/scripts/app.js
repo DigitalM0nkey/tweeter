@@ -24,6 +24,7 @@ $(document).ready(function() {
     if (!$(".fa-angle-double-down").first().is(":hidden")) {
       $(".new-tweet").slideToggle("slow");
       $('form textarea').focus();
+      $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
     }
   });
 
@@ -42,7 +43,7 @@ $(document).ready(function() {
       <p>${escape(tweet.content.text)}</p>
     </article>
     <footer>
-      ${tweet.created_at}
+      ${tweet.created_at} miliseconds since 01-Jan-1970
       <div>
         <i class="fad fa-flag"></i>
         <i class="fad fa-retweet-alt"></i>
@@ -77,15 +78,51 @@ $(document).ready(function() {
       });
   };
 
+
+  // Error Messages
+  const errorMessages = function(type) {
+    if (type === 'empty') {
+      $('<style>.errorMessage { display: block; }</style>').appendTo('.errorMessage');
+      $('.errorTitle').text('ERROR - INPUT EMPTY').slideDown('slow');
+      setTimeout(function() {
+        $('.errorBodyText').text("Sorry Buddy. That's empty.. What do you want me to do with that?").slideDown('slow');
+      }, 2 * 1000);
+      setTimeout(() => {
+        $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
+        $('.errorMessage').slideUp();
+      }, 10000);
+    } else if (type === 'full') {
+      $('<style>.errorMessage { display: block; }</style>').appendTo('.errorMessage');
+      $('.errorTitle').text('ERROR - INPUT FULL').slideDown('slow');
+      setTimeout(function() {
+        $('.errorBodyText').text("You must be color blind!! Didn't you see that you typed more than 140 characters. You gotta slim that done before you submit it.").slideDown('slow');
+      }, 2 * 1000);
+      setTimeout(() => {
+        $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
+        $('.errorMessage').slideUp();
+      }, 10000);
+    }
+  };
+
+  // This hides the error message when X is clicked.
+  $(".errorExit").click(function() {
+    $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
+    $('.errorMessage').slideUp();
+  });
+
+
+
   // AJAX POST /tweets
   $('.new-tweet-form').submit(function(event) {
     const data = $(this).serialize();
     event.preventDefault();
     if (data === "text=") {
-      alert("Sorry Buddy. That's empty.. What do you want me to do with that?");
+      errorMessages('empty');
+      // alert("Sorry Buddy. That's empty.. What do you want me to do with that?");
       return false;
     } else if ($(this[form = "text"]).val().length > 140) {
-      alert("You must be color blind!! Didn't you see that you typed more than 140 characters. You gotta slim that done before i'll submit it.");
+      errorMessages('full');
+      // alert("You must be color blind!! Didn't you see that you typed more than 140 characters. You gotta slim that done before i'll submit it.");
       return false;
     } else {
       $.ajax({

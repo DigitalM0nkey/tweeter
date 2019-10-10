@@ -1,8 +1,37 @@
 
 .new-tweet{
+  margin-top: 2rem;
   display: none;
 }
 
+.fad {
+  margin: 5px;
+}
+
+.errorMessage{
+display: contents;
+}
+
+.errorBar{
+  margin: 1rem;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  border-left: 5rem;
+  display: flex;
+  padding: 10px;
+  color: #612400;
+  background-color: #ff5200;
+  border-radius: 30px;
+  justify-content: center;
+}
+
+.errorBody {
+  display: none;
+  display: flex;
+  place-content: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
 
  form textarea {
   margin: 0;

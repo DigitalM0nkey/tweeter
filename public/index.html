@@ -52,7 +52,18 @@
   <main class="container">
 
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <div class='errorMessage'>
+        <div class='errorBar'>
+          <i class="fad fa-exclamation-triangle"></i>
+          <div class='errorTitle'></div>
+          <i class="fad fa-exclamation-triangle"></i>
+        </div>
+        <div class="errorBody">
+          <div class="errorBodyText"></div>
+          <i class="fad errorExit fa-times-circle"></i>
+        </div>
+      </div>
+      </div>
       <form class="new-tweet-form" action="/tweets" method="POST">
         <textarea name="text" placeholder="What are you humming?"></textarea>
         <div class="input-footer">
@@ -63,30 +74,7 @@
     </section>
 
     <section id="tweets-container">
-      <!-- <article class="all-tweets">
-        <header>
-          <div>
-            <span style="font-size:2em">
-              <i class="fad fa-user-astronaut"></i>
-            </span>
-            Code Monkey
-          </div>
-          <p>@DigitalM0nkey</p>
-        </header>
-
-        <article>
-          <p>The best tweet ever! But what if it is more than 140 words...aaahhh IDK</p>
-        </article>
-
-        <footer>
-          10 days ago
-          <div>
-            <i class="fad fa-flag"></i>
-            <i class="fad fa-retweet-alt"></i>
-            <i class="fad fa-heart"></i>
-          </div>
-        </footer>
-      </article> -->
+      <!-- New tweets will populate here -->
     </section>
 
   </main>
