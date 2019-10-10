@@ -7,8 +7,9 @@
 $(document).ready(function() {
   // place all tweets from db onto main page
   const renderTweets = function(tweets) {
+
     tweets.forEach(element => {
-      return $('#tweets-container').append(createTweetElement(element));
+      return $('#tweets-container').prepend(createTweetElement(element));
     });
   };
 
@@ -39,31 +40,74 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  // AJAX POST /tweets
-  $('.new-tweet-form').submit(function(event) {
-    const data = $(this).serialize();
-    event.preventDefault();
-    $.ajax({
-      type: "POST",
-      url: '/tweets',
-      data: data,
-      success: console.log("Here")
-    });
-
-  });
 
   // AJAX GET /tweets
   const loadTweets = function() {
     $.ajax({
+      method: "GET",
       url: '/tweets',
-      dataType: 'json',
-      success: function(results) {
+      dataType: 'json'
+      // success: function(results) {
+      //   renderTweets(results);
+      //   console.log(results);
+      // }
+    })
+      .then(function(results) {
         renderTweets(results);
-        console.log(results);
-
-      }
-    });
+      });
   };
+
+  const loadTweet = function() {
+    $.ajax({
+      method: "GET",
+      url: '/tweets',
+      dataType: 'json'
+      // success: function(results) {
+      //   renderTweets(results);
+      //   console.log(results);
+      // }
+    })
+      .then(function(results) {
+        renderTweets([results[results.length - 1]]);
+      });
+  };
+
+
+  // AJAX POST /tweets
+  $('.new-tweet-form').submit(function(event) {
+    const data = $(this).serialize();
+    event.preventDefault();
+    if (data === "text=") {
+
+      alert("Sorry Buddy. That's empty.. What do you want me to do with that?");
+      return false;
+    } else if ($(this[form = "text"]).val().length > 140) {
+      alert("You must be color blind!! Didn't you see that you typed more than 140 characters. You gotta slim that done before i'll submit it.");
+      return false;
+    } else {
+      $.ajax({
+        method: "POST",
+        url: '/tweets',
+        data: data,
+      })
+        .then(() => {
+          loadTweet();
+          $(this)[0].reset();
+          const counter = $(this).find(".counter");
+          $(counter).html(140);
+        })
+        .fail(() => {
+          console.log("NOOOOOOOO!");
+        });
+    }
+
+
+
+  });
+
+
+
+
 
   loadTweets();
 
