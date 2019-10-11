@@ -8,7 +8,6 @@
   display: flex;
   justify-content: space-between;
   font-family: 'Source Sans Pro', sans-serif;
-
   margin: 2%;
 }
 
@@ -54,10 +53,7 @@
   color: red;
   animation: .8s infinite beatHeart;
 }
-.fa-heart:clicked {
-  color: red;
-  animation: .8s infinite beatHeart;
-}
+
 .fa-retweet-alt:hover {
   color: blueviolet;
   animation:spin 4s infinite;
@@ -67,9 +63,13 @@
   animation:wink 4s infinite;
 }
 
+/* Animations for the icons */
 
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
+@keyframes spin { 
+  100% { 
+  transform:rotate(360deg); 
+  } 
+}
 
 @keyframes beatHeart {
   0% {
@@ -90,28 +90,8 @@
 }
 
 @keyframes wink {
-  0% {-webkit-transform: rotate(-40deg);
--moz-transform: rotate(-40deg);
--o-transform: rotate(-40deg);
--ms-transform: rotate(-40deg);
+  0% {
 transform: rotate(-40deg);
-}
-
-
-100% {-webkit-transform: rotate(40deg);
--moz-transform: rotate(40deg);
--o-transform: rotate(40deg);
--ms-transform: rotate(40deg);
+} 100% {
 transform: rotate(40deg);}
-
-
-
 }
-
-/* 
-margin: 0;
-border-bottom-color: #555149;
-border-bottom-width: thick;
-
-min-width: -webkit-fill-available;
-background-color: #f5f1ec; */

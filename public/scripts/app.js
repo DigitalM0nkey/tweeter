@@ -25,14 +25,15 @@ $(document).ready(function() {
     if (!$(".fa-angle-double-down").first().is(":hidden")) {
       $(".new-tweet").slideToggle("slow");
       $('form textarea').focus();
-
     }
   });
 
-  $(".fa-heart").click(function() {
-    $('<style>.fa-heart { color: red; }</style>').appendTo('.fa-heart');
+  // Return you to the top of the page
+  $('.fa-hand-point-up').click(function() {
+    $(window.opera ? 'html' : 'html, body').animate({
+      scrollTop: 0
+    }, 'slow');
   });
-
 
   // Create indervidule tweet
   const createTweetElement = function(tweet) {
@@ -84,10 +85,9 @@ $(document).ready(function() {
       });
   };
 
-
   // Error Messages
 
-  // Progress bar
+  // - Progress bar
   const errorMessages = function(type) {
     let timeleft = 10;
     let exitTimer = setInterval(function() {
@@ -99,7 +99,7 @@ $(document).ready(function() {
       }
     }, 1000);
 
-    // Logic
+    // - Logic
     if (type === 'empty') {
       $('<style>.errorBody { display: none; }</style>').appendTo('.errorBody');
       $('<style>#progressBar { display: none; }</style>').appendTo('#progressBar');
@@ -132,13 +132,11 @@ $(document).ready(function() {
     }
   };
 
-  // This hides the error message when X is clicked.
+  // - This hides the error message when X is clicked.
   $(".errorExit").click(function() {
     $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
     $('.errorMessage').slideUp();
   });
-
-
 
   // AJAX POST /tweets
   $('.new-tweet-form').submit(function(event) {

@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-
-
   <!-- Meta Information -->
   <title>Tweeter - Home Page</title>
 
@@ -20,11 +18,9 @@
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css" />
-
 </head>
 
 <body>
-
   <!-- Top nav bar (fixed) -->
   <nav>
     <span class="navSpan">tweeter</span>
@@ -47,10 +43,10 @@
       </div>
     </div>
   </header>
+
   <!-- Page-specific (main) content here -->
 
   <main class="container">
-
     <section class="new-tweet">
       <div class='errorMessage'>
         <div class='errorBar'>
@@ -64,11 +60,10 @@
           </div>
           <i class="fad errorExit fa-times-circle"></i>
         </div>
-
       </div>
       </div>
       <form class="new-tweet-form" action="/tweets" method="POST">
-        <textarea name="text" placeholder="What are you humming?"></textarea>
+        <textarea name="text" placeholder="Rock'n Robin, Tweet....Twiddly Dee!"></textarea>
         <div class="input-footer">
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
@@ -79,7 +74,9 @@
     <section id="tweets-container">
       <!-- New tweets will populate here -->
     </section>
-
+    <div class="movinOnUp">
+      Back to top <i class="fad fa-hand-point-up"></i>
+    </div>
   </main>
 
   <!-- External JS -->
@@ -94,7 +91,6 @@
 
   <!-- Moment - Used to make the date and time pretty -->
   <script src="https://unpkg.com/moment"></script>
-
 </body>
 
 </html>
