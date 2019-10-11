@@ -43,12 +43,69 @@
 }
 
 .all-tweets:hover {
-  
   box-shadow: 5px 5px 0 #888;
 }
 
 .all-tweets:hover header > p {
   opacity: 1;
+}
+
+.fa-heart:hover {
+  color: red;
+  animation: .8s infinite beatHeart;
+}
+.fa-heart:clicked {
+  color: red;
+  animation: .8s infinite beatHeart;
+}
+.fa-retweet-alt:hover {
+  color: blueviolet;
+  animation:spin 4s infinite;
+}
+.fa-flag:hover {
+  color: green;
+  animation:wink 4s infinite;
+}
+
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+@keyframes beatHeart {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wink {
+  0% {-webkit-transform: rotate(-40deg);
+-moz-transform: rotate(-40deg);
+-o-transform: rotate(-40deg);
+-ms-transform: rotate(-40deg);
+transform: rotate(-40deg);
+}
+
+
+100% {-webkit-transform: rotate(40deg);
+-moz-transform: rotate(40deg);
+-o-transform: rotate(40deg);
+-ms-transform: rotate(40deg);
+transform: rotate(40deg);}
+
+
+
 }
 
 /* 

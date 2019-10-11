@@ -25,13 +25,17 @@ $(document).ready(function() {
     if (!$(".fa-angle-double-down").first().is(":hidden")) {
       $(".new-tweet").slideToggle("slow");
       $('form textarea').focus();
-      $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
+
     }
   });
 
+  $(".fa-heart").click(function() {
+    $('<style>.fa-heart { color: red; }</style>').appendTo('.fa-heart');
+  });
+
+
   // Create indervidule tweet
   const createTweetElement = function(tweet) {
-
     const $tweet = $("<article>").addClass("all-tweets");
     const markup = ` 
     <header>
@@ -82,9 +86,9 @@ $(document).ready(function() {
 
 
   // Error Messages
+
+  // Progress bar
   const errorMessages = function(type) {
-
-
     let timeleft = 10;
     let exitTimer = setInterval(function() {
       document.getElementById("progressBar").value = 10 - timeleft;
@@ -95,8 +99,8 @@ $(document).ready(function() {
       }
     }, 1000);
 
+    // Logic
     if (type === 'empty') {
-
       $('<style>.errorBody { display: none; }</style>').appendTo('.errorBody');
       $('<style>#progressBar { display: none; }</style>').appendTo('#progressBar');
       $('<style>.errorMessage { display: block; }</style>').appendTo('.errorMessage');
@@ -142,11 +146,9 @@ $(document).ready(function() {
     event.preventDefault();
     if (data === "text=") {
       errorMessages('empty');
-      // alert("Sorry Buddy. That's empty.. What do you want me to do with that?");
       return false;
     } else if ($(this[form = "text"]).val().length > 140) {
       errorMessages('full');
-      // alert("You must be color blind!! Didn't you see that you typed more than 140 characters. You gotta slim that done before i'll submit it.");
       return false;
     } else {
       $.ajax({
