@@ -9,7 +9,7 @@
 }
 
 .errorMessage{
-display: none;
+  display: none;
 }
 
 .errorBar{
@@ -44,6 +44,7 @@ form textarea {
 }
 
 form input {
+  cursor: pointer;
   background-color: #4152a1;
   color: white;
 }
@@ -55,5 +56,5 @@ form input {
 }
 
 .make-counter-red {
-   color: red
+  color: red
 }

@@ -22,9 +22,9 @@
 }
 
  .all-tweets article {
-   padding-left: 2%;
+  padding-left: 2%;
   text-align: left;
-   margin: 2%;
+  margin: 2%;
   border: #545149;
   border-style: solid;
   border-top: none;
@@ -92,6 +92,7 @@
 @keyframes wink {
   0% {
 transform: rotate(-40deg);
-} 100% {
-transform: rotate(40deg);}
+  } 100% {
+transform: rotate(40deg);
+  }
 }

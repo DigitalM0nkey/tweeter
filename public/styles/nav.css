@@ -1,7 +1,6 @@
 nav {
   display: inline-flex;
   justify-content: space-between;
-  /* box-sizing: border-box; */
   font-family: 'Bungee', cursive;
   position: fixed;
   top: 0;
@@ -12,12 +11,9 @@ nav {
   background-color: #4056A1;
   color: #FFFF;
   padding: 1.5em; 
-   
  }  
 
  .navRight {
-  /* display: flex; */
-  /* justify-content: center; */
   font-family: 'Source Sans Pro', sans-serif;
  }
 
@@ -32,6 +28,7 @@ nav {
  }
 
 .fa-angle-double-down {
+  cursor: pointer;
   animation-name: bounce;
   animation-duration: 3s;
   animation-iteration-count: infinite;

@@ -29,7 +29,7 @@ $(document).ready(function() {
   });
 
   // Return you to the top of the page
-  $('.fa-hand-point-up').click(function() {
+  $('.movinOnUp').click(function() {
     $(window.opera ? 'html' : 'html, body').animate({
       scrollTop: 0
     }, 'slow');
@@ -129,6 +129,20 @@ $(document).ready(function() {
         $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
         $('.errorMessage').slideUp();
       }, 10000);
+    } else if (type === 'broken') {
+      $('<style>.errorBody { display: none; }</style>').appendTo('.errorBody');
+      $('<style>#progressBar { display: none; }</style>').appendTo('#progressBar');
+      $('<style>.errorMessage { display: block; }</style>').appendTo('.errorMessage');
+      $('.errorTitle').text('COULD NOT POST').slideDown('slow');
+      setTimeout(function() {
+        $('<style>#progressBar { display: inline-flex; }</style>').appendTo('#progressBar');
+        $('<style>.errorBody { display: inline-flex; }</style>').appendTo('.errorBody');
+        $('.errorBodyText').text("This is an abnormal error... Just try and post again.").slideDown('slow');
+      }, 2 * 1000);
+      setTimeout(() => {
+        $('<style>.errorMessage { display: none; }</style>').appendTo('.errorMessage');
+        $('.errorMessage').slideUp();
+      }, 10000);
     }
   };
 
@@ -142,7 +156,7 @@ $(document).ready(function() {
   $('.new-tweet-form').submit(function(event) {
     const data = $(this).serialize();
     event.preventDefault();
-    if (data === "text=") {
+    if (data === "text=" || !$(this[form = "text"]).val().trim()) {
       errorMessages('empty');
       return false;
     } else if ($(this[form = "text"]).val().length > 140) {
@@ -161,6 +175,7 @@ $(document).ready(function() {
           $(counter).html(140);
         })
         .fail(() => {
+          errorMessages('broken');
           console.log("NOOOOOOOO!");
         });
     }

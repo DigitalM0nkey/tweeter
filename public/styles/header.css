@@ -11,8 +11,6 @@ body > header {
   background-color: #40BCA5;
   margin-top: 120px;
   background-image: url(http://www.transparenttextures.com/patterns/light-honeycomb-dark.png);
-
-  
 }
 .avatar {
   display: flex;
